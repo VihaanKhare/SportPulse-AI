@@ -1,0 +1,251 @@
+fetch_player_info:
+  description: >
+    Retrieve comprehensive information about a specific sports player, including their career statistics, 
+    recent performance metrics, biographical details, and relevant historical achievements.
+  agent: sports_data_collector
+  expected_input:
+    format: > 
+      {
+        "player_name": "string",
+        "sport": "string",
+        "specific_stats": ["string"],  # Optional - specific statistics of interest
+        "time_period": "string"  # Optional - e.g., "career", "current season", "last 5 matches"
+      }
+  expected_output:
+    format: >
+      {
+        "player_info": {
+          "name": "string",
+          "full_name": "string",
+          "date_of_birth": "string",
+          "nationality": "string",
+          "teams": ["string"],
+          "position": "string",
+          "career_span": "string"
+        },
+        "career_statistics": {
+          "key_stat_1": "value",
+          "key_stat_2": "value",
+          # Sport-specific statistics
+        },
+        "recent_form": {
+          "matches": [
+            {
+              "date": "string",
+              "opponent": "string",
+              "result": "string",
+              "performance_metrics": {
+                "key_metric_1": "value",
+                "key_metric_2": "value"
+              }
+            }
+          ]
+        },
+        "achievements": ["string"],
+        "analysis": "string",  # Brief analysis of player's strengths, style, and current form
+        "image_url": "string"  # Optional
+      }
+  dependencies: 
+    - sports_data_collector
+  context_needed:
+    - User preferences for favorite players/teams
+    - Sport-specific statistical relevance
+
+
+
+live_match_updates:
+  description: >
+    Provide real-time updates, commentary, and analysis for an ongoing sports match, including key events, 
+    statistics, and contextual insights that enhance the viewer's understanding and engagement.
+  agent: commentary_generator
+  expected_input:
+    format: >
+      {
+        "match_id": "string",
+        "teams": ["string", "string"],
+        "sport": "string",
+        "update_frequency": "string",  # e.g., "every minute", "key events only"
+        "commentary_style": "string"   # Optional - e.g., "technical", "casual", "enthusiastic"
+      }
+  expected_output:
+    format: >
+      {
+        "match_info": {
+          "teams": ["string", "string"],
+          "current_score": "string",
+          "venue": "string",
+          "match_status": "string",  # e.g., "in progress", "1st half", "2nd innings"
+          "elapsed_time": "string"
+        },
+        "live_commentary": [
+          {
+            "timestamp": "string",
+            "event_type": "string",  # e.g., "goal", "wicket", "timeout", "substitution"
+            "description": "string",
+            "players_involved": ["string"],
+            "impact_analysis": "string"  # Brief analysis of the event's significance
+          }
+        ],
+        "current_statistics": {
+          "team_1": {
+            "key_stat_1": "value",
+            "key_stat_2": "value"
+          },
+          "team_2": {
+            "key_stat_1": "value",
+            "key_stat_2": "value"
+          }
+        },
+        "key_moments": [
+          {
+            "timestamp": "string",
+            "description": "string",
+            "video_highlight_url": "string"  # Optional
+          }
+        ],
+        "tactical_analysis": "string",  # Current tactical observations
+        "momentum_indicator": "string"  # Which team has momentum currently
+      }
+  dependencies:
+    - sports_data_collector
+    - data_analyst
+  context_needed:
+    - Historical matchups between the teams
+    - Player injuries or special circumstances
+    - Tournament context and implications
+
+cricket_tournament_standings:
+  description: >
+    Deliver up-to-date standings and comprehensive statistics for a cricket tournament, including team 
+    rankings, qualification scenarios, and performance metrics that provide context for the current 
+    tournament situation.
+  agent: data_analyst
+  expected_input:
+    format: >
+      {
+        "tournament_name": "string",
+        "tournament_year": "string",  # Optional
+        "format": "string",  # e.g., "T20", "ODI", "Test"
+        "specific_metrics": ["string"]  # Optional - specific metrics of interest
+      }
+  expected_output:
+    format: >
+      {
+        "tournament_info": {
+          "name": "string",
+          "format": "string",
+          "year": "string",
+          "current_stage": "string",  # e.g., "Group Stage", "Super 8s", "Semi-finals"
+          "last_updated": "string"
+        },
+        "standings": [
+          {
+            "position": "integer",
+            "team": "string",
+            "matches_played": "integer",
+            "won": "integer",
+            "lost": "integer",
+            "tied/no_result": "integer",
+            "points": "integer",
+            "net_run_rate": "float",
+            "qualification_status": "string"  # e.g., "Qualified", "Eliminated", "In contention"
+          }
+        ],
+        "team_statistics": [
+          {
+            "team": "string",
+            "batting_stats": {
+              "highest_total": "integer",
+              "average_score": "float",
+              "run_rate": "float",
+              "highest_individual_score": {
+                "player": "string",
+                "score": "integer",
+                "against": "string"
+              }
+            },
+            "bowling_stats": {
+              "most_wickets": {
+                "player": "string",
+                "wickets": "integer"
+              },
+              "best_economy": {
+                "player": "string",
+                "economy": "float"
+              },
+              "best_bowling_figures": {
+                "player": "string",
+                "figures": "string",
+                "against": "string"
+              }
+            }
+          }
+        ],
+        "tournament_leaders": {
+          "most_runs": [
+            {
+              "player": "string",
+              "team": "string",
+              "runs": "integer",
+              "average": "float",
+              "strike_rate": "float"
+            }
+          ],
+          "most_wickets": [
+            {
+              "player": "string",
+              "team": "string",
+              "wickets": "integer",
+              "economy": "float",
+              "average": "float"
+            }
+          ]
+        },
+        "qualification_scenarios": [
+          {
+            "team": "string",
+            "current_position": "integer",
+            "scenarios": "string"  # Description of what needs to happen for qualification
+          }
+        ],
+        "upcoming_matches": [
+          {
+            "teams": ["string", "string"],
+            "date": "string",
+            "venue": "string",
+            "significance": "string"  # Impact on standings
+          }
+        ],
+        "visualization_data": {
+          "points_table_url": "string",  # URL to visualization
+          "performance_trends_url": "string"  # URL to visualization
+        }
+      }
+  dependencies:
+    - sports_data_collector
+    - pathway_document_manager
+  context_needed:
+    - Tournament format and rules
+    - Historical tournament performance
+    - Team composition and key players
+
+
+structure_player_query:
+  description: >
+    Convert natural language queries about players into structured format for statistical analysis.
+  agent: input_processor
+  expected_input:
+    format: "string"  # Raw natural language input
+  expected_output:
+    format: >
+      {
+        "player_name": "string",
+        "sport": "string",
+        "specific_stats": ["string"],
+        "time_period": "string"
+      }
+  validation_rules:
+    - required_fields: ["player_name", "sport"]
+    - allowed_sports: ["cricket", "football", "basketball", "tennis"]
+  tools_required:
+    - SchemaValidatorTool

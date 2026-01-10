@@ -1,0 +1,33 @@
+.history{
+  flex: 1;
+  /* position: fixed; */
+  top: 12vh;
+  width: 21vw;
+  height: 80vh;
+  border-radius: 10px 10px 10px 10px;
+  
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.newChat{
+  background-color: #542ABA;
+  color: white;
+  font-family: "Gilroy", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newChat:hover{
+  background-color: #814bff;
+  transition: all 0.3s ease-in-out;
+}
+
+h2, h3{
+  font-family: "Gilroy", sans-serif;
+  font-weight: bold;
+}
+
+

@@ -1,0 +1,39 @@
+.chat{
+  flex: 2.5;
+  /* position: fixed; */
+  top: 12vh;
+  width: 21vw;
+  height: 80vh;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  font-family: "Gilroy", sans-serif;
+}
+
+#chat_prompt{
+  font-family: "Gilroy", sans-serif;
+  font-weight: bold;
+}
+
+.prompt_btn{
+  background-color: #542ABA;
+  color: white;
+  font-family: "Gilroy", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.prompt_btn:hover{
+  background-color: #814bff;
+  transition: all 0.3s ease-in-out;
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
