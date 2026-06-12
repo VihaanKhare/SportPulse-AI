@@ -1,8 +1,4 @@
-Got it 👍
-Below is the **ENTIRE README in ONE SINGLE COPY-PASTE BLOCK**.
-Just **copy everything at once** and paste it into `README.md` in VS Code.
 
----
 
 # SportPulse AI
 
